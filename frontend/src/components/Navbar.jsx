@@ -23,7 +23,7 @@ function Navbar() {
           <a className=" cursor-pointer">
             <h1 className="flex no-underline">
               <img height="32" width="32" alt="logo" className="h-8 w-8 mr-1 object-contain" src={logo} />
-              <span className="text-xl font-primary font-bold tracking-tight pt-1">
+              <span className="text-2xl font-primary font-bold tracking-tight pt-1">
                 Dashboard
               </span>
             </h1>
