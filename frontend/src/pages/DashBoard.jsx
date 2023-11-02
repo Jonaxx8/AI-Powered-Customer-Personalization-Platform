@@ -1,11 +1,10 @@
 import React from 'react'
+import ProductsCard from '../components/ProductsCard'
 
 function DashBoard() {
     return (
         <>
-            <h1 className="text-3xl font-bold underline">
-                Hello world!
-            </h1>
+            <ProductsCard />
         </>
 
     )
