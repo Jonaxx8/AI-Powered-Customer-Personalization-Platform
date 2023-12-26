@@ -62,6 +62,22 @@ const products = [
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-06.jpg',
       imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
     },
+    {
+      id: 7,
+      name: 'Scissors',
+      href: '#',
+      price: '₹35',
+      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-07.jpg',
+      imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    },
+    {
+      id: 8,
+      name: 'Metal puch and Pen',
+      href: '#',
+      price: '₹40',
+      imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-08.jpg',
+      imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    },
   // More products...
 ]
 
