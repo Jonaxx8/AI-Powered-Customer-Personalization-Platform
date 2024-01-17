@@ -1,21 +1,12 @@
 import React, { useState } from 'react';
+import { useUserContext } from '../context/UserContext';
 
 const Form = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    gender: '',
-    birthdate: '',
-    email: '',
-    phone: '',
-    address: '',
-    ageGroup: '',
-    interests: '',
-  });
+  const { userData, updateUserData } = useUserContext();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
+    updateUserData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
@@ -24,7 +15,7 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    console.log(formData.interests);
+    console.log(userData);
    
   };
 
@@ -33,13 +24,13 @@ const Form = () => {
       <h2 className="text-2xl font-bold mb-4 ">User Information Form</h2>
       <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
         <div className="grid grid-cols-2 gap-4">
-          <div>
+          <div> 
             <label>
               First Name:
               <input
                 type="text"
                 name="firstName"
-                value={formData.firstName}
+                value={userData.firstName}
                 onChange={handleChange}
                 className="border p-2 w-full"
                 required
@@ -52,7 +43,7 @@ const Form = () => {
               <input
                 type="text"
                 name="lastName"
-                value={formData.lastName}
+                value={userData.lastName}
                 onChange={handleChange}
                 className="border p-2 w-full"
                 required
@@ -65,7 +56,7 @@ const Form = () => {
           Gender:
           <select
             name="gender"
-            value={formData.gender}
+            value={userData.gender}
             onChange={handleChange}
             className="border p-2 w-full"
             required
@@ -78,132 +69,10 @@ const Form = () => {
         </label>
 
         <label>
-          Birthdate:
-          <input
-            type="date"
-            name="birthdate"
-            value={formData.birthdate}
-            onChange={handleChange}
-            className="border p-2 w-full"
-            required
-          />
-        </label>
-
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="border p-2 w-full"
-            required
-          />
-        </label>
-
-        <label>
-          Phone Number:
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className="border p-2 w-full"
-            required
-          />
-        </label>
-
-
-
-        <label>
-          Address Line 1:
-          <input
-            type="text"
-            name="addressLine1"
-            value={formData.addressLine1}
-            onChange={handleChange}
-            className="border p-2 w-full"
-            required
-          />
-        </label>
-
-        <label>
-          Address Line 2:
-          <input
-            type="text"
-            name="addressLine2"
-            value={formData.addressLine2}
-            onChange={handleChange}
-            className="border p-2 w-full"
-          />
-        </label>
-
-        <label>
-          City:
-          <input
-            type="text"
-            name="city"
-            value={formData.city}
-            onChange={handleChange}
-            className="border p-2 w-full"
-            required
-          />
-        </label>
-
-        <label>
-          State/Province:
-          <select
-            name="stateProvince"
-            value={formData.stateProvince}
-            onChange={handleChange}
-            className="border p-2 w-full"
-            required
-          >
-            <option value="">Select State/Province</option>
-            { }
-            <option value="state1">State 1</option>
-            <option value="state2">State 2</option>
-            { }
-          </select>
-        </label>
-
-        <label>
-          ZIP/Postal Code:
-          <input
-            type="text"
-            name="zipCode"
-            value={formData.zipCode}
-            onChange={handleChange}
-            className="border p-2 w-full"
-            required
-          />
-        </label>
-
-        <label>
-          Country:
-          <select
-            name="country"
-            value={formData.country}
-            onChange={handleChange}
-            className="border p-2 w-full"
-            required
-          >
-            <option value="">Select Country</option>
-            { }
-            <option value="country1">Country 1</option>
-            <option value="country2">Country 2</option>
-            { }
-          </select>
-        </label>
-
-
-
-
-        <label>
           Age Group:
           <select
             name="ageGroup"
-            value={formData.ageGroup}
+            value={userData.ageGroup}
             onChange={handleChange}
             className="border p-2 w-full"
             required
@@ -220,7 +89,7 @@ const Form = () => {
           Interests:
           <select
             name="interests"
-            value={formData.interests}
+            value={userData.interests}
             onChange={handleChange}
             className="border p-2 w-full"
             required

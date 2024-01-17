@@ -1,17 +1,19 @@
 import DashBoard from './pages/DashBoard'
 import Navbar from './components/Navbar'
 import Form from './pages/form'
+import { UserProvider } from './context/UserContext'
 
 function App() {
 
   return (
     <>
-      <Navbar />
-      <Form />
-      <DashBoard />
-      
-      
+      <UserProvider>    
+        <Navbar />
+        <Form />
+        <DashBoard />
+      </UserProvider>
     </>
+    
   )
 }
 
