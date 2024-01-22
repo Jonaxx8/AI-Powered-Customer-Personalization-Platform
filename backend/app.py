@@ -1,3 +1,4 @@
+import os
 from flask import Flask,request,jsonify
 from joblib import load
 import json
@@ -8,23 +9,26 @@ import numpy as np
 
 app = Flask(__name__)
 
-#change the file path of final_rating_model.joblib
-final_rating_model = load('C:/Users/Admin/Desktop/AI-Powered-Customer-Personalization-Platform/backend/rank_based/final_rating_model.joblib') 
+base_dir = os.path.abspath(os.path.dirname(__file__))
+model_path = os.path.join(base_dir, 'models/rank_based', 'final_rating_model.joblib')
+final_rating_model = load(model_path)
 # Load collaborative filtering model components
-final_ratings_matrix = pd.read_pickle('C:/Users/Admin/Desktop/AI-Powered-Customer-Personalization-Platform/backend/final_ratings_matrix.pkl')
+# final_ratings_matrix = pd.read_pickle('C:/Users/Admin/Desktop/AI-Powered-Customer-Personalization-Platform/backend/final_ratings_matrix.pkl')
+pkl_file_path = os.path.join(base_dir, 'final_ratings_matrix.pkl')
+final_ratings_matrix = pd.read_pickle(pkl_file_path)
 
 
-@app.route('/recommend', methods=['GET'])
+@app.route('/rank-based', methods=['GET'])
 def recommend_products():
     recommended_products = list(top_n_products(final_rating_model, 5, 50))
 
     # Save JSON recommendations to a file in a specific folder
-    save_json_to_folder(recommended_products, 'C:/Users/Admin/Desktop/AI-Powered-Customer-Personalization-Platform/frontend/src/json/rank_based_data.json')
+    # save_json_to_folder(recommended_products, 'C:/Users/Admin/Desktop/AI-Powered-Customer-Personalization-Platform/frontend/src/json/rank_based_data.json')
 
     return jsonify({'recommendations': recommended_products})
 
 # Endpoint to get recommendations
-@app.route('/rec', methods=['GET'])
+@app.route('/user-based', methods=['GET'])
 def get_recommendations():
     try:
         # Get user_index from the request
