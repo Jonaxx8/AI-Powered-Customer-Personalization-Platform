@@ -10,12 +10,19 @@ import numpy as np
 app = Flask(__name__)
 
 base_dir = os.path.abspath(os.path.dirname(__file__))
-model_path = os.path.join(base_dir, 'models/rank_based', 'final_rating_model.joblib')
-final_rating_model = load(model_path)
+final_rating_model_path = os.path.join(base_dir, 'models/rank_based', 'final_rating_model.joblib')
+final_rating_model = load(final_rating_model_path)
 # Load collaborative filtering model components
 # final_ratings_matrix = pd.read_pickle('C:/Users/Admin/Desktop/AI-Powered-Customer-Personalization-Platform/backend/final_ratings_matrix.pkl')
 pkl_file_path = os.path.join(base_dir, 'final_ratings_matrix.pkl')
 final_ratings_matrix = pd.read_pickle(pkl_file_path)
+U_model_path = os.path.join(base_dir, 'model_based', 'U.joblib')
+Ul = load(U_model_path)
+sigma_model_path = os.path.join(base_dir, 'model_based', 'sigma.joblib')
+sigma = load(sigma_model_path)
+Vt_model_path = os.path.join(base_dir, 'model_based', 'Vt.joblib')
+Vt = load(Vt_model_path)
+
 
 
 @app.route('/rank-based', methods=['GET'])
@@ -39,6 +46,27 @@ def get_recommendations():
 
         # Return recommendations as JSON response
         return jsonify({'recommendations': recommended_products})
+
+    except Exception as e:
+        return jsonify({'error': str(e)})
+@app.route('/model-based', methods=['GET'])
+def recommend():
+    try:
+        # Get user input (you might need to adjust this based on your input format)
+        user_index = 3
+        num_recommendations =5
+
+        # Generate recommendations using the loaded model
+        all_user_predicted_ratings = np.dot(np.dot(Ul, sigma), Vt)
+        preds_df = pd.DataFrame(abs(all_user_predicted_ratings))
+
+        # Get recommendations for the specified user_index
+        user_predictions = preds_df.iloc[user_index, :]
+        recommended_products = user_predictions.sort_values(ascending=False).head(num_recommendations).index.tolist()
+
+        # Return recommendations as JSON
+        response = {'user_index': user_index, 'recommendations': recommended_products}
+        return jsonify(response)
 
     except Exception as e:
         return jsonify({'error': str(e)})
