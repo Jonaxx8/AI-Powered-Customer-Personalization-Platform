@@ -9,7 +9,7 @@ function App() {
     <>
       <UserProvider>    
         <Navbar />
-        <Form />
+        {/* <Form /> */}
         <DashBoard />
       </UserProvider>
     </>

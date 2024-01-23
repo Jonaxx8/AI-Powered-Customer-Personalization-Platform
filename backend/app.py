@@ -5,9 +5,11 @@ import json
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app)
 
 base_dir = os.path.abspath(os.path.dirname(__file__))
 final_rating_model_path = os.path.join(base_dir, 'models/rank_based', 'final_rating_model.joblib')
@@ -25,23 +27,17 @@ Vt = load(Vt_model_path)
 
 
 
-@app.route('/rank-based', methods=['GET'])
+@app.route('/api/rank-based', methods=['GET'])
 def recommend_products():
     recommended_products = list(top_n_products(final_rating_model, 5, 50))
-
-    # Save JSON recommendations to a file in a specific folder
-    # save_json_to_folder(recommended_products, 'C:/Users/Admin/Desktop/AI-Powered-Customer-Personalization-Platform/frontend/src/json/rank_based_data.json')
 
     return jsonify({'recommendations': recommended_products})
 
 # Endpoint to get recommendations
-@app.route('/user-based', methods=['GET'])
+@app.route('/api/user-based', methods=['GET'])
 def get_recommendations():
     try:
-        # Get user_index from the request
         
-
-        # Use collaborative filtering model to get recommendations
         recommended_products = recommendations(3, 5, final_ratings_matrix)
 
         # Return recommendations as JSON response
@@ -49,7 +45,7 @@ def get_recommendations():
 
     except Exception as e:
         return jsonify({'error': str(e)})
-@app.route('/model-based', methods=['GET'])
+@app.route('/api/model-based', methods=['GET'])
 def recommend():
     try:
         # Get user input (you might need to adjust this based on your input format)
