@@ -6,7 +6,8 @@ const config = {
           URL: 'https://amazon-product-search2.p.rapidapi.com/product/?asin=',
           HEADERS: {
             // 'X-RapidAPI-Key': 'b6edc7548cmsh2c912ce4f2514b4p1bf551jsn0c1adf5163c9',
-            'X-RapidAPI-Key': 'f75faab58amshd375c022d9e76bbp1e68cbjsn4053b77611c5',
+            // 'X-RapidAPI-Key': 'f75faab58amshd375c022d9e76bbp1e68cbjsn4053b77611c5',
+            'X-RapidAPI-Key': 'f489390ff5mshc723de7d80419bcp13317bjsndff690ffead6',
             'X-RapidAPI-Host': 'amazon-product-search2.p.rapidapi.com',
           },
         },
