@@ -6,6 +6,7 @@ import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 from flask_cors import CORS
+from scipy.sparse import csr_matrix
 
 
 app = Flask(__name__)
@@ -24,6 +25,13 @@ sigma_model_path = os.path.join(base_dir, 'model_based', 'sigma.joblib')
 sigma = load(sigma_model_path)
 Vt_model_path = os.path.join(base_dir, 'model_based', 'Vt.joblib')
 Vt = load(Vt_model_path)
+df_path= os.path.join(base_dir, 'model_based', 'df_final_aggregated')
+df=pd.read_csv(df_path)
+
+
+all_user_predicted_ratings = np.dot(np.dot(Ul, sigma), Vt)
+preds_matrix = csr_matrix(all_user_predicted_ratings)
+
 
 
 
@@ -48,25 +56,11 @@ def get_recommendations():
 @app.route('/api/model-based', methods=['GET'])
 def recommend():
     try:
-        # Get user input (you might need to adjust this based on your input format)
-        user_index = 3
-        num_recommendations =5
-
-        # Generate recommendations using the loaded model
-        all_user_predicted_ratings = np.dot(np.dot(Ul, sigma), Vt)
-        preds_df = pd.DataFrame(abs(all_user_predicted_ratings))
-
-        # Get recommendations for the specified user_index
-        user_predictions = preds_df.iloc[user_index, :]
-        recommended_products = user_predictions.sort_values(ascending=False).head(num_recommendations).index.tolist()
-
-        # Return recommendations as JSON
-        response = {'user_index': user_index, 'recommendations': recommended_products}
-        return jsonify(response)
-
+        user_index = 10
+        recommendations = recommend_items(user_index, preds_matrix, num_recommendations=5, original_df=df)
+        return jsonify({'recommendations': recommendations})
     except Exception as e:
-        return jsonify({'error': str(e)})
-
+        return jsonify({'status': 'error', 'message': str(e)})
 #defining a function to get the top n products based on highest average rating and minimum interactions
 def top_n_products(final_rating, n, min_interaction):
 
@@ -118,6 +112,30 @@ def similar_users(user_index, interactions_matrix):
     similarity_score.remove(similarity_score[0])
 
     return most_similar_users, similarity_score
+# Recommendation function
+def recommend_items(user_index, preds_matrix, num_recommendations, original_df):
+    # Get the user's ratings from the predicted interaction matrix
+    user_predictions = preds_matrix[user_index, :].toarray().reshape(-1)
+
+    # Creating a DataFrame with predicted ratings
+    temp = pd.DataFrame({'user_predictions': user_predictions})
+
+    # Filtering the DataFrame where the user has not interacted with the product
+    temp = temp[temp.user_predictions > 0]
+
+    # Recommending products with top predicted ratings
+    temp = temp.sort_values('user_predictions', ascending=False)
+
+    # Take the top num_recommendations products
+    top_recommendations = temp.head(num_recommendations)
+
+    # Return the recommended product indices
+    recommended_product_indices = top_recommendations.index.tolist()
+
+    # Retrieve actual product IDs from the original DataFrame
+    actual_product_ids = original_df.loc[original_df.index.isin(recommended_product_indices), 'prod_id'].tolist()
+
+    return actual_product_ids
 
 # Function to save JSON data to a file in a specified folder
 def save_json_to_folder(data, file_path):
