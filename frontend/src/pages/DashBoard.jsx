@@ -15,6 +15,9 @@ function DashBoard() {
   const [highlyRatedProductIds, setHighlyRatedProductIds] = useState([]);
   const [highlyRatedProducts, setHighlyRatedProducts] = useState([]);
 
+  const [modelBasedProductIds, setModelBasedProductIds] = useState([]);
+  const [modelBasedProducts, setModelBasedProducts] = useState([]);
+
   // State for loading and error
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -25,26 +28,32 @@ function DashBoard() {
     setRecommendedProducts([]);
     setHighlyRatedProductIds([]);
     setHighlyRatedProducts([]);
+    setModelBasedProductIds([]);
+    setModelBasedProducts([]);
     setLoading(true);
     setError(null);
 
     // Fetch both Recommended and Highly Rated Product IDs concurrently
     Promise.all([
       fetchProducts('/api/rank-based'),
-      fetchProducts('/api/user-based')
+      fetchProducts('/api/user-based'),
+      fetchProducts('/api/model-based'),
     ])
-      .then(([recommendedData, highlyRatedData]) => {
+      .then(([recommendedData, highlyRatedData, modelBasedData]) => {
         setRecommendedProductIds(recommendedData.recommendations);
         setHighlyRatedProductIds(highlyRatedData.recommendations);
+        setModelBasedProductIds(modelBasedData.recommendations);
 
         const recommendedDetailsPromise = Promise.all(recommendedData.recommendations.map(fetchAmazonDetails));
         const highlyRatedDetailsPromise = Promise.all(highlyRatedData.recommendations.map(fetchAmazonDetails));
+        const modelBasedDetailsPromise = Promise.all(modelBasedData.recommendations.map(fetchAmazonDetails));
 
-        return Promise.all([recommendedDetailsPromise, highlyRatedDetailsPromise]);
+        return Promise.all([recommendedDetailsPromise, highlyRatedDetailsPromise, modelBasedDetailsPromise]);
       })
-      .then(([recommendedDetails, highlyRatedDetails]) => {
+      .then(([recommendedDetails, highlyRatedDetails, modelBasedDetails]) => {
         setRecommendedProducts(recommendedDetails);
         setHighlyRatedProducts(highlyRatedDetails);
+        setModelBasedProducts(modelBasedDetails);
         setLoading(false);
       })
       .catch((err) => {
@@ -68,12 +77,14 @@ function DashBoard() {
   // Function to fetch Amazon details for a product ID
   const fetchAmazonDetails = async (productId) => {
     try {
-      const response = await fetch(`${config.development.AMAZON_API.URL}${productId}`, {
-        headers: config.development.AMAZON_API.HEADERS,
+      const response = await fetch(`${config.development.getAmazonAPI(productId).URL}`, {
+        method: 'GET',
+        headers: config.development.getAmazonAPI(productId).HEADERS,
       });
       const data = await response.json();
       // Assuming your Amazon API returns product details in the response
-      return data;
+      console.log(`Fetched details for product ID ${productId}:`, data);
+      return data.data;
     } catch (error) {
       console.error(`Error fetching details for product ID ${productId}:`, error);
       throw error;
