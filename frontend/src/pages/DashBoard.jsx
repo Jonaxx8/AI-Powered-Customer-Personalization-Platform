@@ -99,13 +99,24 @@ function DashBoard() {
     return <p>{error}</p>;
   }
 
-  return (
-    <>
-      <ProductsCard title="Recommended Products" products={recommendedProducts} />
-      <ProductsCard title="Highly Rated Products" products={highlyRatedProducts} />
-      <ProductsCard title="Model Based Products" products={modelBasedProducts} />
-    </>
-  );
-}
+   // Filter out products with undefined or empty details
+   const filteredRecommendedProducts = recommendedProducts.filter(product => product);
+   const filteredHighlyRatedProducts = highlyRatedProducts.filter(product => product);
+   const filteredModelBasedProducts = modelBasedProducts.filter(product => product);
+ 
+   return (
+     <>
+       {filteredRecommendedProducts.length > 0 && (
+         <ProductsCard title="Recommended Products" products={filteredRecommendedProducts} />
+       )}
+       {filteredHighlyRatedProducts.length > 0 && (
+         <ProductsCard title="Highly Rated Products" products={filteredHighlyRatedProducts} />
+       )}
+       {filteredModelBasedProducts.length > 0 && (
+         <ProductsCard title="Model Based Products" products={filteredModelBasedProducts} />
+       )}
+     </>
+   );
+ }
 
 export default DashBoard;
