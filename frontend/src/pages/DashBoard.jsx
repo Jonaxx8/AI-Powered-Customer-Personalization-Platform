@@ -103,6 +103,7 @@ function DashBoard() {
     <>
       <ProductsCard title="Recommended Products" products={recommendedProducts} />
       <ProductsCard title="Highly Rated Products" products={highlyRatedProducts} />
+      <ProductsCard title="Model Based Products" products={modelBasedProducts} />
     </>
   );
 }
