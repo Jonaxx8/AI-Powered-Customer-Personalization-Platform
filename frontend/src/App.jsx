@@ -1,19 +1,19 @@
-import DashBoard from './pages/DashBoard'
-import Navbar from './components/Navbar'
-import Form from './pages/form'
-import { UserProvider } from './context/UserContext'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+import LoginPage from './pages/auth/LoginPage';
+import SignupPage from './pages/auth/SignupPage';
+import HomePage from './pages/homePage';
+
 
 function App() {
 
   return (
-    <>
-      <UserProvider>    
-        <Navbar />
-        {/* <Form /> */}
-        <DashBoard />
-      </UserProvider>
-    </>
-    
+    <Routes>
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
+      <Route path='/home' element={<HomePage />} />
+    </Routes>
   )
 }
 
