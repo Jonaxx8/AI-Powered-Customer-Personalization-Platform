@@ -59,12 +59,12 @@ const Dropdown = ({onClose}) => {
               <option value="beauty">Beauty and Personal Care</option>
             </select>
           </div>
-          <div>
+          <div className='mt-4'>
             <button
               onClick={onClose}
               className="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold p-3 rounded"
             >
-              Save
+              Close
             </button>
           </div>
         </div>

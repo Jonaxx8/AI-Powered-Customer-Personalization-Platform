@@ -29,7 +29,7 @@ function Navbar() {
           </Link>
         </Link>
         <div className='flex'> 
-          <div className='w-8 h-8' onClick={() => setTogglePreferencesPopup(!togglePreferencesPopup)}><img src={PIcon} /></div>
+          <div className='w-8 h-8' onClick={() => setTogglePreferencesPopup(!togglePreferencesPopup)} style={{cursor: 'pointer'}}><img src={PIcon} /></div>
           <Link to='/'>
             <button
               onClick={doSignOut}
