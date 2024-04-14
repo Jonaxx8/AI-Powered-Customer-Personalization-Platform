@@ -18,6 +18,12 @@ const DashBoard = () => {
       setProductsSection1(productsRank.filter(product => product.age === '26-35' && product.interest === 'electronics'));
     }else if(age==='36-50' && interest==='electronics'){
       setProductsSection1(productsRank.filter(product => product.age === '36-50' && product.interest === 'electronics'));
+    } else if(age==='18-25' && interest==='books'){
+      setProductsSection1(productsRank.filter(product => product.age === '18-25' && product.interest === 'books'));
+    }else if(age==='36-50' && interest==='books'){
+      setProductsSection1(productsRank.filter(product => product.age === '36-50' && product.interest === 'books'));
+    } else if(age==='26-35' && interest==='books'){
+      setProductsSection1(productsRank.filter(product => product.age === '26-35' && product.interest === 'books'));
     }
   }, [age, interest]);
 
@@ -28,6 +34,12 @@ const DashBoard = () => {
       setProductsSection2(ProductsBySimilarity.filter(product => product.age === '26-35' && product.interest === 'electronics'));
     }else if(age==='36-50' && interest==='electronics'){
       setProductsSection2(ProductsBySimilarity.filter(product => product.age === '36-50' && product.interest === 'electronics'));
+    } else if(age==='18-25' && interest==='books'){
+      setProductsSection2(ProductsBySimilarity.filter(product => product.age === '18-25' && product.interest === 'books'));
+    } else if(age==='36-50' && interest==='books'){
+      setProductsSection2(ProductsBySimilarity.filter(product => product.age === '36-50' && product.interest === 'books'));
+    } else if(age==='26-35' && interest==='books'){
+      setProductsSection2(ProductsBySimilarity.filter(product => product.age === '26-35' && product.interest === 'books'));
     }
   }, [age, interest]);
 
@@ -38,6 +50,12 @@ const DashBoard = () => {
       setProductsSection3(ProductsByModel.filter(product => product.age === '26-35' && product.interest === 'electronics'));
     }else if(age==='36-50' && interest==='electronics'){
       setProductsSection3(ProductsByModel.filter(product => product.age === '36-50' && product.interest === 'electronics'));
+    } else if(age==='18-25' && interest==='books'){
+      setProductsSection3(ProductsByModel.filter(product => product.age === '18-25' && product.interest === 'books'));
+    } else if(age==='36-50' && interest==='books'){
+      setProductsSection3(ProductsByModel.filter(product => product.age === '36-50' && product.interest === 'books'));
+    } else if(age==='26-35' && interest==='books'){
+      setProductsSection3(ProductsByModel.filter(product => product.age === '26-35' && product.interest === 'books'));
     }
   }, [age, interest]);
 
