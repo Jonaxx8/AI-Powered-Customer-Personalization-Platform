@@ -1,92 +1,75 @@
 import React from 'react'
-import { Fragment } from 'react'
-import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import './Dropdown.scss'
+import { useDispatch } from 'react-redux';
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
+
+const Dropdown = ({onClose}) => {
+  const dipatch = useDispatch();
+
+
+  const handleChangeAgeGroup = (e) => {
+    console.log(e.target.value);
+    dipatch({ type: 'SET_AGE', payload: e.target.value });
   }
 
-  
-function Dropdown() {
+  const handleChangeInterests = (e) => {
+    console.log(e.target.value);
+    dipatch({ type: 'SET_INTEREST', payload: e.target.value });
+  }
   return (
-    <Menu as="div" className="relative inline-block text-left">
-      <div>
-        <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          Interests
-          <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
-        </Menu.Button>
-      </div>
-
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
-        <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div className="py-1">
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  Electronics
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  Books
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  Fashion
-                </a>
-              )}
-            </Menu.Item>
-            <form method="POST" action="#">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    type="submit"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block w-full px-4 py-2 text-left text-sm'
-                    )}
-                  >
-                    Cosmetics
-                  </button>
-                )}
-              </Menu.Item>
-            </form>
+    <div className='p-dropdown'>
+      <div className='p-dropdown__content'>
+        <div className='p-dropdown__content__header p-4'>
+          <h1 className='text-2xl'>Preferences</h1>
+        </div>
+        <div className='p-dropdown__content__body p-4'>
+          <div className="flex items-center justify-between">
+            <label className="block text-sm font-medium leading-6 text-gray-900">
+              Age
+            </label>
           </div>
-        </Menu.Items>
-      </Transition>
-    </Menu>
+          <div className="mt-2">
+            <select
+              name="ageGroup"
+              className="border p-2 w-full focus:ring-indigo-600"
+              required
+              onChange={handleChangeAgeGroup}
+            >
+              <option value="">Select Age Group</option>
+              <option value="18-25">18-25</option>
+              <option value="26-35">26-35</option>
+              <option value="36-50">36-50</option>
+            </select>
+          </div>
+          <div className="flex items-center justify-between">
+            <label className="block text-sm font-medium leading-6 text-gray-900">
+              Interests
+            </label>
+          </div>
+          <div className="mt-2">
+            <select
+              name="Interests"
+              className="border p-2 w-full"
+              onChange={handleChangeInterests}
+              required
+            >
+              <option value="">Select Interests</option>
+              <option value="electronics">Electronics</option>
+              <option value="books">Books</option>
+              <option value="beauty">Beauty and Personal Care</option>
+            </select>
+          </div>
+          <div>
+            <button
+              onClick={onClose}
+              className="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold p-3 rounded"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 

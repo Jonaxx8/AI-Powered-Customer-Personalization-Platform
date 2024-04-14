@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import bag from '../../assets/bag.png';
-import { useAuth} from '../../context/authContext'
 import { doCreateUserWithEmailAndPassword } from '../../firebase/auth';
 
 const SignupPage = () => {
@@ -18,7 +17,7 @@ const SignupPage = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-        navigate("/home");
+        navigate("/form");
       })
       .catch((error) => {
         const errorCode = error.code;

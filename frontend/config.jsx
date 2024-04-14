@@ -5,7 +5,7 @@ const config = {
     getAmazonAPI: (asin) => ({
       URL: `https://real-time-amazon-data.p.rapidapi.com/product-details?asin=${asin}&country=US`,
       HEADERS: {
-        "X-RapidAPI-Key": "6abab680f9msh85cc190bbfd26b7p1bbaa8jsn9bb3b5b45ddd",
+        "X-RapidAPI-Key": "4adfc7aeecmsh741a767317d4f48p16541ajsn7f157dcc48e9",
         "X-RapidAPI-Host": "real-time-amazon-data.p.rapidapi.com",
       },
     }),

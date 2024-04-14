@@ -16,7 +16,7 @@ const LoginPage = () => {
     doSignInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        navigate("/home");
+        navigate("/form");
         console.log(user);
       })
       .catch((error) => {
