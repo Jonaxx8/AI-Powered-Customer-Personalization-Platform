@@ -256,7 +256,7 @@ export const ProductsBySimilarity = [
   {
     id: 32,
     name: "Apple Watch Series 6 (GPS, 44mm) - Space Gray Aluminum Case with Black Sport Band",
-    // image_link: "https://m.media-amazon.com/images/I/71K+hTswAyL._AC_SL1500_.jpg",
+    // image_url: "https://m.media-amazon.com/images/I/71K+hTswAyL._AC_SL1500_.jpg",
     image_url:
       "https://m.media-amazon.com/images/I/61geRaHCQoL._AC_SL1000_.jpg",
     link: "https://a.co/d/5UNdV1J",
@@ -269,7 +269,7 @@ export const ProductsByModel = [
   {
     id: 1,
     name: "Surge Protector Power Strip - 8 Widely Outlets with 4 USB Charging Ports, Multi Plug Outlet Extender with 5Ft Braided Extension Cord, Flat Plug Wall Mount Desk USB Charging Station for Home Office ETL",
-    image_link:
+    image_url:
       "https://m.media-amazon.com/images/I/61gu0oVVo0L._AC_SL1500_.jpg",
     link: "https://a.co/d/evs0MWD",
     interest: "electronics",
@@ -278,7 +278,7 @@ export const ProductsByModel = [
   {
     id: 2,
     name: "Upgraded, Anker Soundcore Bluetooth Speaker with IPX5 Waterproof, Stereo Sound, 24H Playtime, Portable Wireless Speaker for iPhone, Samsung and More",
-    image_link:
+    image_url:
       "https://m.media-amazon.com/images/I/61y+b4M0RZL._AC_SL1200_.jpg",
     link: "https://a.co/d/c3QOyLM",
     interest: "electronics",
@@ -287,7 +287,7 @@ export const ProductsByModel = [
   {
     id: 3,
     name: "Apple iPad (10th Generation): with A14 Bionic chip, 10.9-inch Liquid Retina Display, 64GB, Wi-Fi 6, 12MP front/12MP Back Camera, Touch ID, All-Day Battery Life – Blue",
-    image_link:
+    image_url:
       "https://m.media-amazon.com/images/I/61uA2UVnYWL._AC_SL1500_.jpg",
     link: "https://a.co/d/88PZUx2",
     interest: "electronics",
@@ -296,7 +296,7 @@ export const ProductsByModel = [
   {
     id: 4,
     name: "Replacement Remote Control Only for Roku TV, Compatible for TCL Roku/Hisense Roku/Onn Roku/Philips Roku Smart TVs(Not for Stick and Box)",
-    image_link:
+    image_url:
       "https://m.media-amazon.com/images/I/71Z6Vs6+hDL._AC_SL1500_.jpg",
     link: "https://a.co/d/1uFii1z",
     interest: "electronics",
@@ -313,7 +313,7 @@ export const ProductsByModel = [
   {
     id: 6,
     name: "Razer DeathAdder Essential Gaming Mouse: 6400 DPI Optical Sensor - 5 Programmable Buttons - Mechanical Switches - Rubber Side Grips - Classic Black",
-    image_link: "https://m.media-amazon.com/images/I/8189uwDnMkL._AC_SL1500_.jpg",
+    image_url: "https://m.media-amazon.com/images/I/8189uwDnMkL._AC_SL1500_.jpg",
     link: "https://www.amazon.com/Razer-DeathAdder-Essential-Gaming-Mouse/dp/B094PS5RZQ/",
     interest: "electronics",
     age: "18-25",
@@ -321,7 +321,7 @@ export const ProductsByModel = [
   {
     id: 7,
     name: "Quest 2 — Advanced All-In-One Virtual Reality Headset — 128 GB",
-    image_link: "https://m.media-amazon.com/images/I/61GhF+JUXGL._AC_SL1500_.jpg",
+    image_url: "https://m.media-amazon.com/images/I/61GhF+JUXGL._AC_SL1500_.jpg",
     link: "https://www.amazon.com/Oculus-Quest-Advanced-All-One-Virtual/dp/B099VMT8VZ/?",
     interest: "electronics",
     age: "18-25",
@@ -329,7 +329,7 @@ export const ProductsByModel = [
   {
     id: 8,
     name: "PHILIPS 22 inch Class Thin Full HD (1920 x 1080) 75Hz Monitor",
-    image_link: "https://m.media-amazon.com/images/I/71iMPr0C8KL._AC_SL1500_.jpg",
+    image_url: "https://m.media-amazon.com/images/I/71iMPr0C8KL._AC_SL1500_.jpg",
     link: "https://www.amazon.com/PHILIPS-Computer-Monitors-Replacement-221V8LN/dp/B0BRR4ZGNP/",
     interest: "electronics",
     age: "18-25",
@@ -337,7 +337,7 @@ export const ProductsByModel = [
   {
     id: 9,
     name: "Soundcore by Anker P20i True Wireless Earbuds",
-    image_link: "https://m.media-amazon.com/images/I/5181ILcyQJL._AC_SL1500_.jpg",
+    image_url: "https://m.media-amazon.com/images/I/5181ILcyQJL._AC_SL1500_.jpg",
     link: "https://www.amazon.com/Soundcore-Wireless-Bluetooth-Water-Resistant-Customization/dp/B0BTYCRJSS/",
     interest: "electronics",
     age: "18-25",
@@ -345,7 +345,7 @@ export const ProductsByModel = [
   {
     id: 10,
     name: "Wireless CarPlay Adapter",
-    image_link: "https://m.media-amazon.com/images/I/611fh2SSclL._AC_SL1500_.jpg",
+    image_url: "https://m.media-amazon.com/images/I/611fh2SSclL._AC_SL1500_.jpg",
     link: "https://www.amazon.com/Vevavi-Wireless-Compatible-Multi-User-Connection/dp/B0CQ2FJS6T/",
     interest: "electronics",
     age: "26-35",
@@ -353,7 +353,7 @@ export const ProductsByModel = [
   {
     id: 11,
     name: "Rocketbook Core Reusable Smart Notebook",
-    image_link: "https://m.media-amazon.com/images/I/81199kfYyyL._AC_SL1500_.jpg",
+    image_url: "https://m.media-amazon.com/images/I/81199kfYyyL._AC_SL1500_.jpg",
     link: "https://www.amazon.com/Rocketbook-Innovative-Eco-Friendly-Digitally-Capabilities/dp/B07CZDXVH5/",
     interest: "electronics",
     age: "26-35",
@@ -361,7 +361,7 @@ export const ProductsByModel = [
   {
     id: 12,
     name: "Cell Phone Stand with Bluetooth Speaker&Led Color Changing Light",
-    image_link: "https://m.media-amazon.com/images/I/71Y4by5cDbL._AC_SL1500_.jpg",
+    image_url: "https://m.media-amazon.com/images/I/71Y4by5cDbL._AC_SL1500_.jpg",
     link: "https://www.amazon.com/ASEAT-Bluetooth-Changing-Gradient-Birthday/dp/B0C61K2QY5/",
     interest: "electronics",
     age: "36-50",
@@ -369,7 +369,7 @@ export const ProductsByModel = [
   {
     id: 13,
     name: "MUSICOZY Sleep Headphones Bluetooth 5.2 Headband Sleeping Headphones Sleep Eye Mask",
-    image_link: "https://m.media-amazon.com/images/I/71I03zlFz8L._AC_SL1500_.jpg",
+    image_url: "https://m.media-amazon.com/images/I/71I03zlFz8L._AC_SL1500_.jpg",
     link: "https://www.amazon.com/MUSICOZY-Headphones-Bluetooth-Everything-Christmas/dp/B07TPLZY74/",
     interest: "electronics",
     age: "36-50",
@@ -377,7 +377,7 @@ export const ProductsByModel = [
   {
     id: 14,
     name: "MoCuishle Shiatsu Back Shoulder and Neck Massager with Heat, Electric Deep Tissue 4D Kneading Massage",
-    image_link: "https://m.media-amazon.com/images/I/71fdZ-Ei0tL._AC_SL1500_.jpg",
+    image_url: "https://m.media-amazon.com/images/I/71fdZ-Ei0tL._AC_SL1500_.jpg",
     link: "https://www.amazon.com/Shiatsu-Back-Shoulder-Neck-Massager/dp/B07G142F9Z/",
     interest: "electronics",
     age: "36-50",
@@ -385,7 +385,7 @@ export const ProductsByModel = [
   {
     id: 15,
     name: "RockDove Men's Original Two-Tone Memory Foam Slipper",
-    image_link: "https://m.media-amazon.com/images/I/715rfN9D20L._AC_SY575_.jpg",
+    image_url: "https://m.media-amazon.com/images/I/715rfN9D20L._AC_SY575_.jpg",
     link: "https://www.amazon.com/ASEAT-Bluetooth-Changing-Gradient-Birthday/dp/B0C61K2QY5/",
     interest: "electronics",
     age: "36-50",
