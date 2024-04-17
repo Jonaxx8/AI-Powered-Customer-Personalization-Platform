@@ -24,6 +24,12 @@ const DashBoard = () => {
       setProductsSection1(productsRank.filter(product => product.age === '36-50' && product.interest === 'books'));
     } else if(age==='26-35' && interest==='books'){
       setProductsSection1(productsRank.filter(product => product.age === '26-35' && product.interest === 'books'));
+    } else if(age==='18-25' && interest==='beauty'){
+      setProductsSection1(productsRank.filter(product => product.age === '18-25' && product.interest === 'beauty'));
+    } else if(age==='36-50' && interest==='beauty'){
+      setProductsSection1(productsRank.filter(product => product.age === '36-50' && product.interest === 'beauty'));
+    } else if(age==='26-35' && interest==='beauty'){
+      setProductsSection1(productsRank.filter(product => product.age === '26-35' && product.interest === 'beauty'));
     }
   }, [age, interest]);
 
@@ -40,7 +46,14 @@ const DashBoard = () => {
       setProductsSection2(ProductsBySimilarity.filter(product => product.age === '36-50' && product.interest === 'books'));
     } else if(age==='26-35' && interest==='books'){
       setProductsSection2(ProductsBySimilarity.filter(product => product.age === '26-35' && product.interest === 'books'));
+    } else if(age==='18-25' && interest==='beauty'){
+      setProductsSection2(ProductsBySimilarity.filter(product => product.age === '18-25' && product.interest === 'beauty'));
+    } else if(age==='36-50' && interest==='beauty'){
+      setProductsSection2(ProductsBySimilarity.filter(product => product.age === '36-50' && product.interest === 'beauty'));
+    } else if(age==='26-35' && interest==='beauty'){
+      setProductsSection2(ProductsBySimilarity.filter(product => product.age === '26-35' && product.interest === 'beauty'));
     }
+
   }, [age, interest]);
 
   useEffect(() => {
@@ -56,6 +69,12 @@ const DashBoard = () => {
       setProductsSection3(ProductsByModel.filter(product => product.age === '36-50' && product.interest === 'books'));
     } else if(age==='26-35' && interest==='books'){
       setProductsSection3(ProductsByModel.filter(product => product.age === '26-35' && product.interest === 'books'));
+    } else if(age==='18-25' && interest==='beauty'){
+      setProductsSection3(ProductsByModel.filter(product => product.age === '18-25' && product.interest === 'beauty'));
+    } else if(age==='36-50' && interest==='beauty'){
+      setProductsSection3(ProductsByModel.filter(product => product.age === '36-50' && product.interest === 'beauty'));
+    } else if(age==='26-35' && interest==='beauty'){
+      setProductsSection3(ProductsByModel.filter(product => product.age === '26-35' && product.interest === 'beauty'));
     }
   }, [age, interest]);
 
