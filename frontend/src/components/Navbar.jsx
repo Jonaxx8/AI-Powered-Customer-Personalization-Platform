@@ -2,7 +2,7 @@ import logo from '../assets/bag.png'
 import { Link } from 'react-router-dom'
 import { doSignOut } from '../firebase/auth'
 import React, {useState} from 'react'
-import Dropdown from './Dropdown'
+import Dropdown from './Dropdown.jsx'
 import PIcon from '../assets/settings.png'
 
 

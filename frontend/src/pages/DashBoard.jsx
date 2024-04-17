@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ProductsCard from '../components/ProductsCard';
+import ProductsCard from '../components/ProductsCard.jsx';
 import { useSelector } from 'react-redux';
-import { ProductsByRank, ProductsBySimilarity, ProductsByModel } from '../data/data';
+import { ProductsByRank, ProductsBySimilarity, ProductsByModel } from '../data/data.js';
 import { PropagateLoader } from 'react-spinners';
 
 const DashBoard = () => {

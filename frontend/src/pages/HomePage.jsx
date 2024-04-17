@@ -1,5 +1,5 @@
-import DashBoard from "./DashBoard"
-import Navbar from "../components/Navbar"
+import DashBoard from "./DashBoard.jsx"
+import Navbar from "../components/Navbar.jsx"
 
 function HomePage() {
 
