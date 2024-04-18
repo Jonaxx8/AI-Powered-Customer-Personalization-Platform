@@ -1,7 +1,6 @@
 import React from 'react'
-import './Dropdown.scss'
+import '../styles/DropDown.scss'
 import { useDispatch } from 'react-redux';
-
 
 const Dropdown = ({onClose}) => {
   const dipatch = useDispatch();
